@@ -29,3 +29,6 @@ htmlcov/
 Thumbs.db
 
 *.log
+
+*.cast
+/demo.gif
