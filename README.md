@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/saidamiraslanli/deploydoctor/actions/workflows/ci.yml/badge.svg)](https://github.com/saidamiraslanli/deploydoctor/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/saidamiraslanli/deploydoctor/blob/main/LICENSE)
 [![Code style: Ruff](https://img.shields.io/badge/lint-ruff-000)](https://github.com/astral-sh/ruff)
 [![Tests: pytest](https://img.shields.io/badge/tests-pytest-success)](https://docs.pytest.org/)
 
@@ -14,7 +14,7 @@ Output is a single readable Rich report with `PASS` / `WARN` / `FAIL` / `SKIP` m
 
 ## Demo
 
-![DeployDoctor demo](https://github.com/saidamiraslanli/deploydoctor/blob/main/docs/assets/demo.gif)
+![DeployDoctor demo](https://raw.githubusercontent.com/saidamiraslanli/deploydoctor/main/docs/assets/demo.gif)
 
 ## Install
 
@@ -88,12 +88,12 @@ A bare hostname (`example.com`) or a full URL (`https://example.com/foo`) both w
 └────────┴──────────┴────────┴─────────┘
 ```
 
-More worked examples in [`docs/examples/`](docs/examples/):
+More worked examples in [`docs/examples/`](https://github.com/saidamiraslanli/deploydoctor/tree/main/docs/examples):
 
-- [`502-bad-gateway.md`](docs/examples/502-bad-gateway.md) — reverse proxy can't reach upstream app
-- [`ssl-expired.md`](docs/examples/ssl-expired.md) — certificate expired or about to expire
-- [`nginx-upstream-down.md`](docs/examples/nginx-upstream-down.md) — nginx is up, the app behind it isn't
-- [`cloudflare-525.md`](docs/examples/cloudflare-525.md) — Cloudflare can't complete TLS handshake with origin
+- [`502-bad-gateway.md`](https://github.com/saidamiraslanli/deploydoctor/blob/main/docs/examples/502-bad-gateway.md) — reverse proxy can't reach upstream app
+- [`ssl-expired.md`](https://github.com/saidamiraslanli/deploydoctor/blob/main/docs/examples/ssl-expired.md) — certificate expired or about to expire
+- [`nginx-upstream-down.md`](https://github.com/saidamiraslanli/deploydoctor/blob/main/docs/examples/nginx-upstream-down.md) — nginx is up, the app behind it isn't
+- [`cloudflare-525.md`](https://github.com/saidamiraslanli/deploydoctor/blob/main/docs/examples/cloudflare-525.md) — Cloudflare can't complete TLS handshake with origin
 
 ## What problems it detects
 
@@ -154,7 +154,7 @@ deploydoctor remote example.com || curl -X POST https://my-alert-hook
 
 ## Contributing
 
-Pull requests welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for setup, lint / test commands, and the rules every new check must follow.
+Pull requests welcome. See [`CONTRIBUTING.md`](https://github.com/saidamiraslanli/deploydoctor/blob/main/CONTRIBUTING.md) for setup, lint / test commands, and the rules every new check must follow.
 
 Quick start:
 
@@ -168,4 +168,4 @@ ruff check .
 
 ## License
 
-[MIT](LICENSE).
+[MIT](https://github.com/saidamiraslanli/deploydoctor/blob/main/LICENSE).
