@@ -106,7 +106,22 @@ def _check_url(url: str, timeout: float, verify: bool = True) -> CheckResult:
         )
 
     elapsed_ms = (time.perf_counter() - start) * 1000.0
-    status, msg, suggestions = _classify_status(resp.status_code)
+    server = resp.headers.get("server", "")
+    is_cloudflare = "cloudflare" in server.lower()
+
+    if resp.status_code == 525 and is_cloudflare:
+        domain = url.split("://", 1)[1].split("/")[0]
+        status = Status.FAIL
+        msg = "Cloudflare 525 SSL handshake failed: Cloudflare could reach the origin, but TLS negotiation between Cloudflare and the origin server failed."
+        suggestions: list[str] = [
+            "sudo nginx -T | grep -E 'listen 443|ssl_certificate'",
+            "sudo nginx -t",
+            f"openssl s_client -connect {domain}:443 -servername {domain}",
+            "Cloudflare dashboard → SSL/TLS: Full requires TLS on origin; Full (strict) requires a valid trusted cert",
+            "sudo tail -n 50 /var/log/nginx/error.log",
+        ]
+    else:
+        status, msg, suggestions = _classify_status(resp.status_code)
 
     details: list[str] = [
         f"Final URL: {resp.url}",
@@ -115,7 +130,6 @@ def _check_url(url: str, timeout: float, verify: bool = True) -> CheckResult:
     if resp.history:
         chain = " -> ".join(str(h.url) for h in resp.history)
         details.append(f"Redirects: {chain} -> {resp.url}")
-    server = resp.headers.get("server")
     if server:
         details.append(f"Server: {server}")
 

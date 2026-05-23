@@ -85,13 +85,14 @@ More worked examples in [`docs/examples/`](docs/examples/):
 - [`502-bad-gateway.md`](docs/examples/502-bad-gateway.md) — reverse proxy can't reach upstream app
 - [`ssl-expired.md`](docs/examples/ssl-expired.md) — certificate expired or about to expire
 - [`nginx-upstream-down.md`](docs/examples/nginx-upstream-down.md) — nginx is up, the app behind it isn't
+- [`cloudflare-525.md`](docs/examples/cloudflare-525.md) — Cloudflare can't complete TLS handshake with origin
 
 ## What problems it detects
 
 | Layer | Detected |
 |-------|----------|
 | **DNS** | NXDOMAIN, missing A/AAAA, resolver timeouts |
-| **HTTP / HTTPS** | connection refused, connect/read timeouts, too many redirects, SSL verification failures, 4xx, 5xx, 502 / 503 / 504 gateway errors, redirect chains |
+| **HTTP / HTTPS** | connection refused, connect/read timeouts, too many redirects, SSL verification failures, 4xx, 5xx, 502 / 503 / 504 gateway errors, Cloudflare 525 SSL handshake failures, redirect chains |
 | **SSL / TLS** | expired certs, certs expiring within 30 days, verify failures, missing chain, hosts without TLS |
 | **Ports** | 80 / 443 closed, filtered, refused, or timing out from outside |
 | **Local host (Linux)** | nginx config syntax (`nginx -t`), listening sockets (`ss -tulpn`), nginx error log tail, running Docker containers, missing tools |

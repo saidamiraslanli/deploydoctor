@@ -67,3 +67,48 @@ def test_http_connect_timeout(monkeypatch):
     r = check_https("example.com")
     assert r.status == Status.FAIL
     assert "timeout" in r.message.lower()
+
+
+def test_https_525_cloudflare(monkeypatch):
+    def handler(req: httpx.Request) -> httpx.Response:
+        return httpx.Response(525, text="SSL handshake failed", headers={"server": "cloudflare"})
+
+    monkeypatch.setattr("deploydoctor.checks.http.httpx.Client", _client_with(handler))
+    r = check_https("example.com")
+    assert r.status == Status.FAIL
+    assert "525" in r.message
+    assert "Cloudflare" in r.message
+    assert "TLS negotiation" in r.message
+    assert any("nginx" in s.lower() or "openssl" in s.lower() or "SSL/TLS" in s for s in r.suggestions)
+
+
+def test_https_525_cloudflare_case_insensitive(monkeypatch):
+    def handler(req: httpx.Request) -> httpx.Response:
+        return httpx.Response(525, text="SSL handshake failed", headers={"server": "Cloudflare"})
+
+    monkeypatch.setattr("deploydoctor.checks.http.httpx.Client", _client_with(handler))
+    r = check_https("example.com")
+    assert r.status == Status.FAIL
+    assert "Cloudflare" in r.message
+
+
+def test_https_525_non_cloudflare_generic(monkeypatch):
+    def handler(req: httpx.Request) -> httpx.Response:
+        return httpx.Response(525, text="error", headers={"server": "nginx"})
+
+    monkeypatch.setattr("deploydoctor.checks.http.httpx.Client", _client_with(handler))
+    r = check_https("example.com")
+    assert r.status == Status.FAIL
+    assert "Cloudflare" not in r.message
+    assert "525" in r.message
+
+
+def test_https_502_still_works(monkeypatch):
+    def handler(req: httpx.Request) -> httpx.Response:
+        return httpx.Response(502, text="bad gateway", headers={"server": "cloudflare"})
+
+    monkeypatch.setattr("deploydoctor.checks.http.httpx.Client", _client_with(handler))
+    r = check_https("example.com")
+    assert r.status == Status.FAIL
+    assert "502" in r.message
+    assert "Cloudflare" not in r.message
