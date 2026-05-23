@@ -12,21 +12,31 @@
 
 Output is a single readable Rich report with `PASS` / `WARN` / `FAIL` / `SKIP` markers, a summary, the **most likely issue**, and a set of copy-pasteable next commands.
 
-## Screenshot
+## Demo
 
-> _placeholder — add a GIF or screenshot of `deploydoctor check example.com` here. Recommended: a [`vhs`](https://github.com/charmbracelet/vhs) cassette in `docs/`._
+> _Record with `asciinema rec demo.cast` on your Linux server, then convert to GIF with [agg](https://github.com/asciinema/agg). Replace this placeholder and update the path below._
+
+![DeployDoctor demo](docs/assets/demo.gif)
 
 ## Install
 
-Production:
+From GitHub (recommended until PyPI release):
 
 ```bash
-pip install -e .
+pipx install git+https://github.com/saidamiraslanli/deploydoctor.git
 ```
 
-Development (linter + tests):
+Or with pip:
 
 ```bash
+pip install git+https://github.com/saidamiraslanli/deploydoctor.git
+```
+
+Development (editable install with linter + tests):
+
+```bash
+git clone https://github.com/saidamiraslanli/deploydoctor.git
+cd deploydoctor
 pip install -e ".[dev]"
 ```
 
