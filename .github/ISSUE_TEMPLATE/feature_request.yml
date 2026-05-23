@@ -1,0 +1,55 @@
+name: Feature request
+description: Suggest a check, a CLI improvement, or output enhancement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        DeployDoctor stays intentionally small — focused, no-magic. Proposals that match that bar move fastest.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the real scenario. "What did you reach for the CLI for and find missing?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: A new check? A new CLI flag? An output improvement? Be concrete.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing commands you can already run by hand, other tools, workarounds.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - New check (remote)
+        - New check (local)
+        - CLI ergonomics
+        - Output / formatting
+        - Packaging / install
+        - Docs
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: willing
+    attributes:
+      label: Would you be willing to implement this?
+      options:
+        - label: I'd like to send a PR.
