@@ -14,7 +14,7 @@ Output is a single readable Rich report with `PASS` / `WARN` / `FAIL` / `SKIP` m
 
 ## Demo
 
-![DeployDoctor demo](docs/assets/demo.gif)
+![DeployDoctor demo](https://github.com/saidamiraslanli/deploydoctor/blob/main/docs/assets/demo.gif)
 
 ## Install
 
