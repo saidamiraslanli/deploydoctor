@@ -1,6 +1,7 @@
 # DeployDoctor
 
 [![CI](https://github.com/saidamiraslanli/deploydoctor/actions/workflows/ci.yml/badge.svg)](https://github.com/saidamiraslanli/deploydoctor/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/deploydoctor)](https://pypi.org/project/deploydoctor/)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/saidamiraslanli/deploydoctor/blob/main/LICENSE)
 [![Code style: Ruff](https://img.shields.io/badge/lint-ruff-000)](https://github.com/astral-sh/ruff)
@@ -18,16 +19,14 @@ Output is a single readable Rich report with `PASS` / `WARN` / `FAIL` / `SKIP` m
 
 ## Install
 
-From GitHub (recommended until PyPI release):
-
 ```bash
-pipx install git+https://github.com/saidamiraslanli/deploydoctor.git
+pip install deploydoctor
 ```
 
-Or with pip:
+Or with pipx (recommended for CLI tools):
 
 ```bash
-pip install git+https://github.com/saidamiraslanli/deploydoctor.git
+pipx install deploydoctor
 ```
 
 Development (editable install with linter + tests):
