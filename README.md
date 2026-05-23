@@ -14,8 +14,6 @@ Output is a single readable Rich report with `PASS` / `WARN` / `FAIL` / `SKIP` m
 
 ## Demo
 
-> _Record with `asciinema rec demo.cast` on your Linux server, then convert to GIF with [agg](https://github.com/asciinema/agg). Replace this placeholder and update the path below._
-
 ![DeployDoctor demo](docs/assets/demo.gif)
 
 ## Install
