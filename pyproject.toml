@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "deploydoctor"
-version = "0.1.0"
+version = "0.1.1"
 description = "Diagnose Nginx, SSL, Docker, DNS, ports, and web app deployment problems from one CLI."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.11"
-authors = [{ name = "DeployDoctor Contributors" }]
+authors = [{ name = "Said Amiraslanli" }]
 keywords = ["devops", "cli", "nginx", "ssl", "dns", "docker", "deployment", "diagnostics"]
 classifiers = [
     "Development Status :: 4 - Beta",
